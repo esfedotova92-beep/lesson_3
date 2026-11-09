@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коррупция: Цена ошибки</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: #1e1e1e;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+        }
+
+        .article-num {
+            font-size: 3.5em;
+            font-weight: 900;
+            color: #ffcc00;
+            line-height: 1;
+        }
+
+        .article-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .penalty-box {
+            background: rgba(255, 77, 77, 0.1);
+            border-left: 4px solid #ff4d4d;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .penalty-title {
+            color: #ff4d4d;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .penalty-text {
+            font-size: 1.1em;
+            line-height: 1.4;
+        }
+
+        .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .example-block {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #444;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .tag-tax { background: #00bcd4; color: #000; }
+        .tag-college { background: #8bc34a; color: #000; }
+
+        /* Стили для задач */
+        .quiz-section {
+            max-width: 800px;
+            width: 100%;
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #333;
+        }
+
+        .quiz-title {
+            text-align: center;
+            color: #ffcc00;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .task {
+            background: #2c2c2c;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .task:hover {
+            border-color: #ffcc00;
+            transform: translateX(5px);
+        }
+
+        .task-question {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .task-answer {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #444;
+            color: #a0a0a0;
+            line-height: 1.5;
+        }
+
+        .task.active .task-answer {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .verdict {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-right: 10px;
+        }
+
+        .verdict-guilty { background: #ff4d4d; color: #fff; }
+        .verdict-innocent { background: #4caf50; color: #fff; }
+        .verdict-risk { background: #ff9800; color: #000; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hint {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>⚖️ Коррупция: Цена ошибки</h1>
+
+    <div class="container">
+        <!-- Статья 290 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="article-num">290</div>
+                <div class="article-title">Получение взятки<br><span style="font-size:0.6em; color:#888;">Должностное лицо</span></div>
+            </div>
+            
+            <p>Берет деньги/услуги за действие (или бездействие), которое обязан выполнять по службе.</p>
+
+            <div class="penalty-box">
+                <span class="penalty-title">💰 Цена преступления:</span>
+                <div class="penalty-text">
+                    • Штраф: от <span class="highlight">25 000₽</span> до <span class="highlight">100-кратной суммы взятки</span><br>
+                    • Лишение свободы: до <span class="highlight">15 лет</span> (при крупном размере)<br>
+                    • Запрет занимать должности: до <span class="highlight">10 лет</span>
+                </div>
+            </div>
+
+            <div class="example-block">
+                <span class="tag tag-tax">Из опыта ФНС</span>
+                <p>Инспектор помогает фирме скрыть доходы за % от сэкономленных налогов. Это не "помощь", а ст. 290. Итог: срок + волчий билет.</p>
+            </div>
+
+            <div class="example-block">
+                <span class="tag tag-college">Колледж</span>
+                <p>Преподаватель требует платные консультации у своих студентов перед экзаменом, намекая на оценку.</p>
+            </div>
+        </div>
+
+        <!-- Статья 291 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="article-num">291</div>
+                <div class="article-title">Дача взятки<br><span style="font-size:0.6em; color:#888;">Любое лицо</span></div>
+            </div>
+            
+            <p>Дает деньги/услуги, чтобы получить преимущество, услугу или избежать ответственности.</p>
+
+            <div class="penalty-box">
+                <span class="penalty-title">💰 Цена преступления:</span>
+                <div class="penalty-text">
+                    • Штраф: до <span class="highlight">100-кратной суммы взятки</span> (мин. <span class="highlight">25 000₽</span>)<br>
+                    • Лишение свободы: до <span class="highlight">12 лет</span><br>
+                    • ⚠️ Даже если взятку НЕ взяли — это покушение на преступление!
+                </div>
+            </div>
+
+            <div class="example-block">
+                <span class="tag tag-tax">Из опыта ФНС</span>
+                <p>Предприниматель дает конверт инспектору, думая "меня не посадят". Ошибка! Судимость = запрет на госзакупки навсегда.</p>
+            </div>
+
+            <div class="example-block">
+                <span class="tag tag-college">Колледж</span>
+                <p>Родители передают деньги за "автомат". Преподаватель отказался и сообщил ректору. Родители — под следствием за покушение.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ситуационные задачи -->
+    <div class="quiz-section">
+        <div class="quiz-title">🧠 Разбор полетов: Кликни на задачу</div>
+        
+        <div class="task" onclick="this.classList.toggle('active')">
+            <div class="task-question">1. Студент принес преподавателю коробку конфет перед экзаменом. Просто так, без просьб. Это взятка?</div>
+            <div class="task-answer">
+                <span class="verdict verdict-risk">⚠️ ЗОНА РИСКА</span><br>
+                Формально — нет, если стоимость подарка менее 3 000₽ (ст. 575 ГК РФ). Но если это происходит систематически или перед важной аттестацией — это может быть расценено как <b>скрытая форма подкупа</b>. Преподаватель обязан вернуть подарок или сдать его в колледж.
+            </div>
+        </div>
+
+        <div class="task" onclick="this.classList.toggle('active')">
+            <div class="task-question">2. Вы нашли в интернете "решалу", который обещает купить диплом за 50 000₽. Вы заплатили, но диплом оказался фейком. Можно ли идти в полицию?</div>
+            <div class="task-answer">
+                <span class="verdict verdict-guilty">❌ НЕТ, НЕЛЬЗЯ</span><br>
+                Обратившись в полицию, вы сами признаетесь в совершении преступления по <b>ст. 291 УК РФ</b> (дача взятки). Вас тоже привлекут к ответственности. Мошенники рассчитывают именно на этот страх.
+            </div>
+        </div>
+
+        <div class="task" onclick="this.classList.toggle('active')">
+            <div class="task-question">3. Староста группы скидывается по 500₽, чтобы купить преподавателю кофе и шоколадку к 8 марта. Это коррупция?</div>
+            <div class="task-answer">
+                <span class="verdict verdict-innocent">✅ НЕТ</span><br>
+                Если это добровольный сбор, сумма скромная, подарок вручается публично и не связан с оценками/зачетами — это проявление вежливости. Коррупция начинается там, где есть <b>встречная услуга</b> или давление.
+            </div>
+        </div>
+
+        <div class="task" onclick="this.classList.toggle('active')">
+            <div class="task-question">4. Преподаватель говорит: "Приходите ко мне на платные курсы, там я объясню то, что будет на экзамене". У вас есть выбор?</div>
+            <div class="task-answer">
+                <span class="verdict verdict-guilty">⚠️ ЭТО ВЗЯТКА (СТ. 290)</span><br>
+                Да, формально вы можете не ходить. Но если материал на экзамене дается ТОЛЬКО на платных курсах — это <b>злоупотребление положением</b>. Преподаватель создает искусственную необходимость платить. Это квалифицируется как получение взятки в форме оказания услуг имущественного характера.
+            </div>
+        </div>
+
+        <div class="hint">💡 Нажмите на задачу, чтобы увидеть разбор</div>
+    </div>
+
+</body>
+</html>
